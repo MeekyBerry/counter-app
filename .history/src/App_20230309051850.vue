@@ -5,11 +5,15 @@ export default {
   components: {
     Counter
   },
-}
+  }
 </script>
 
 <template>
-  <Counter />
+  <!-- <main> -->
+    <Counter />
+  <!-- </main> -->
 </template>
 
-<style scoped></style>
+<style scoped>
+
+</style>

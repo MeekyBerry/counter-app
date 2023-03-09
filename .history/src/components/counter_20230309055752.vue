@@ -28,7 +28,7 @@ export default {
       set: (val) => store.commit("setValue", val),
     });
 
-    return { count, increment, decrement, reset, value, setValue };
+    return { count, increment, decrement, reset, setValue };
   },
 };
 </script>

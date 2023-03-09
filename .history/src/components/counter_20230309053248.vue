@@ -25,7 +25,7 @@ export default {
     const setValue = () => store.commit("setValue", value);
     const value = computed({
       get: () => store.state.value,
-      set: (val) => store.commit("setValue", val),
+      // set: (val) => store.commit("setValue", val),
     });
 
     return { count, increment, decrement, reset, value, setValue };

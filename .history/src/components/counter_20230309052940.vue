@@ -5,7 +5,7 @@
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
     <button @click="reset">Reset</button>
-    <input type="number" v-model="value" />
+    <input type="number" v-model.number="value" />
     <button @click="setValue">Set Value</button>
   </div>
 </template>
@@ -23,10 +23,10 @@ export default {
     const decrement = () => store.commit("decrement");
     const reset = () => store.commit("reset");
     const setValue = () => store.commit("setValue", value);
-    const value = computed({
-      get: () => store.state.value,
-      set: (val) => store.commit("setValue", val),
-    });
+    // const value = computed({
+    //   get: () => store.state.value,
+    //   set: (val) => store.commit("setValue", val),
+    // });
 
     return { count, increment, decrement, reset, value, setValue };
   },
