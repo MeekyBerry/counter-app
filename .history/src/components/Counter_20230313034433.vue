@@ -1,9 +1,9 @@
 <template>
   <div class="app">
-    <div class="container">
-      <h1 class="title">Easy to use counter</h1>
-      <p class="counter">{{ count }}</p>
-      <div class="img__container__grid">
+    <div class="app-container">
+      <h1 class="app-title">Easy to use counter</h1>
+      <p class="app-counter">{{ count }}</p>
+      <div class="app--img__container__grid">
         <div class="img-container">
           <button @click="increment()" class="img-btn">
             <img src="../assets/img/plus.png" alt="Plus Image" class="img" />
@@ -77,72 +77,69 @@ export default {
   height: 100vh;
   width: 100vw;
   background-color: #1c2e4a;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: $color-bg;
-    padding: 20px;
-    border-radius: 5px;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: $color-bg;
+  padding: 20px;
+  border-radius: 5px;
+}
 
-    .title {
-      color: $color-text;
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+.app-title {
+  color: #FEFCFF;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
 
-    .counter {
-      color: $color-text;
-      font-size: 3rem;
-      margin-bottom: 20px;
-    }
-  }
+.app-counter {
+  color: #FEFCFF;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
 
-  .img__container__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
 
-    .img-container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+.img-btn {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
 
-      .img-btn {
-        background-color: transparent;
-        border: none;
-        outline: none;
-        cursor: pointer;
+.img {
+  width: 50px;
+  height: 50px;
+}
 
-        .img {
-          width: 50px;
-          height: 50px;
-        }
-      }
-    }
+.input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
 
-    .input-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 10px;
+.input {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding: 5px;
+  margin-right: 10px;
+}
 
-      .input {
-        width: 100px;
-        height: 30px;
-        border: none;
-        outline: none;
-        border-radius: 5px;
-        padding: 5px;
-        text-align: center;
-
-        &:focus {
-          border: 1px solid $color-text;
-        }
-      }
-    }
-  }
+.input-btn {
+  background-color: #FEFCFF;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
 </style>

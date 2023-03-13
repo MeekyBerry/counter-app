@@ -141,6 +141,16 @@ export default {
         &:focus {
           border: 1px solid $color-text;
         }
+
+        &::placeholder {
+          color: $color-text;
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
       }
     }
   }
