@@ -30,9 +30,9 @@
           <input v-model="value" type="number" class="input" placeholder="Set value" />
           <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
         </div>
-      </div>
-      <div>
-      </div>
+        </div>
+        <div >
+        </div>
     </div>
 
     <!-- TEMPLATE FOR THE COMPOSABLE COMPONENT -->
@@ -62,12 +62,12 @@ export default {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
     setValueAction() {
       const value = Number(this.value);
-      if (!isNaN(value) && value >= 0 && value <= 1000) {
-        this.clearError();
+      if (!isNaN(value) && value >= 0 && value <= 100 && value != "") {
+         this.clearError();
         this.setValue(value);
         this.value = "";
       } else {
-        this.setError("Please enter a number between 0 and 1000");
+        this.setError("Please enter a number between 0 and 100");
       }
     }
   },

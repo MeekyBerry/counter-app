@@ -20,9 +20,7 @@ export default createStore({
       value.value = "";
       // CLEAR THE ERROR MESSAGE
       error = document.querySelector(".error");
-      if (error !== null) {
-        error.innerHTML = "";
-      }
+      error.innerHTML = "";
     },
     setValue(state, value) {
       state.count = value;

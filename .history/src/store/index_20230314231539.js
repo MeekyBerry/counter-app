@@ -4,7 +4,6 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     count: 0,
-    error: "",
   },
   mutations: {
     increment(state) {
@@ -13,25 +12,21 @@ export default createStore({
     decrement(state) {
       state.count--;
     },
-    reset(state, value, error) {
+    reset(state, value) {
       state.count = 0;
       // ACCESS THE VALUE INPUT BY THE USER AND ALSO SET IT TO ZERO
       value = document.querySelector("input");
       value.value = "";
-      // CLEAR THE ERROR MESSAGE
-      error = document.querySelector(".error");
-      if (error !== null) {
-        error.innerHTML = "";
-      }
     },
     setValue(state, value) {
+      if (
+        value >= 0 &&
+        value <= 100 &&
+        value !== "" &&
+        value !== null &&
+        value !== undefined
+       )
       state.count = value;
-    },
-    setError(state, error) {
-      state.error = error;
-    },
-    clearError(state) {
-      state.error = "";
     },
   },
   actions: {
@@ -47,15 +42,8 @@ export default createStore({
     setValue({ commit }, value) {
       commit("setValue", value);
     },
-    setError({ commit }, error) {
-      commit("setError", error);
-    },
-    clearError({ commit }) {
-      commit("clearError");
-    },
   },
   getters: {
     count: (state) => state.count,
-    error: (state) => state.error,
   },
 });

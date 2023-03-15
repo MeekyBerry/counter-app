@@ -9,7 +9,6 @@
       <div class="img__container__grid">
         <div class="counter-wrapper grid-1">
           <h2 class="counter">{{ count }}</h2>
-          <p class="error" v-if="error">{{ error }}</p>
         </div>
         <div class="img-container grid-2">
           <button @click="increment()" class="img-btn">
@@ -28,11 +27,11 @@
         </div>
         <div class="input-container grid-5">
           <input v-model="value" type="number" class="input" placeholder="Set value" />
-          <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
+          <!-- <button @click="setValue(Number(value))" class="input-btn">Set</button> -->
+          <button @click="setValue()" class="input-btn">Set</button>
         </div>
-      </div>
-      <div>
-      </div>
+        <div v-if="error">{{ error }}</div>
+        </div>
     </div>
 
     <!-- TEMPLATE FOR THE COMPOSABLE COMPONENT -->
@@ -60,14 +59,13 @@ export default {
   },
   methods: {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
-    setValueAction() {
+    setValue() {
       const value = Number(this.value);
-      if (!isNaN(value) && value >= 0 && value <= 1000) {
-        this.clearError();
+      if (value) {
+        this.setError("");
         this.setValue(value);
-        this.value = "";
       } else {
-        this.setError("Please enter a number between 0 and 1000");
+        this.setError("Please enter a valid number");
       }
     }
   },
@@ -133,28 +131,17 @@ export default {
     padding: 15px 0;
 
     .counter-wrapper {
-      width: 100%;
-      padding: 10px 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
+      background-color: $color-white-soft;
+      border-radius: 10px;
+      width: 80%;
+      // overflow: hidden;
+      padding: 0 5px;
     }
 
     .counter {
       color: $color-grey-light;
       font-size: $font-size-xl;
       font-weight: $font-weight-medium;
-      font-family: $font-family-alt;
-      text-align: center;
-      background-color: $color-white-soft;
-      border-radius: 10px;
-      width: 80%;
-    }
-
-    .error {
-      color: $color-red;
-      font-size: $font-size-xs;
       font-family: $font-family-alt;
       text-align: center;
     }

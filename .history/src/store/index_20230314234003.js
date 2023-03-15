@@ -13,19 +13,24 @@ export default createStore({
     decrement(state) {
       state.count--;
     },
-    reset(state, value, error) {
+    reset(state, value) {
       state.count = 0;
       // ACCESS THE VALUE INPUT BY THE USER AND ALSO SET IT TO ZERO
       value = document.querySelector("input");
       value.value = "";
-      // CLEAR THE ERROR MESSAGE
-      error = document.querySelector(".error");
-      if (error !== null) {
-        error.innerHTML = "";
-      }
     },
     setValue(state, value) {
-      state.count = value;
+      if ( value >= 0 &&
+          value <= 100 &&
+          value !== "" &&
+          value !== null &&
+          value !== undefined
+      ) {
+        state.count = value;
+        state.error = "";
+      } else {
+        state.error = "Please enter a number between 0 and 100";
+      }
     },
     setError(state, error) {
       state.error = error;
@@ -44,8 +49,8 @@ export default createStore({
     reset({ commit }) {
       commit("reset");
     },
-    setValue({ commit }, value) {
-      commit("setValue", value);
+    setValue({ commit }, value, error) {
+      commit("setValue", value, error);
     },
     setError({ commit }, error) {
       commit("setError", error);
@@ -59,3 +64,25 @@ export default createStore({
     error: (state) => state.error,
   },
 });
+
+//       )
+//     },
+//   },
+//   actions: {
+//     increment({ commit }) {
+//       commit("increment");
+//     },
+//     decrement({ commit }) {
+//       commit("decrement");
+//     },
+//     reset({ commit }) {
+//       commit("reset");
+//     },
+//     setValue({ commit }, value, error) {
+//       commit("setValue", value, error);
+//     },
+//   },
+//   getters: {
+//     count: (state) => state.count,
+//   },
+// });

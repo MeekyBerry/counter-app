@@ -7,10 +7,7 @@
         <!-- <strong>NOTE:</strong> The composable component is commented out in the code below. -->
       </p>
       <div class="img__container__grid">
-        <div class="counter-wrapper grid-1">
-          <h2 class="counter">{{ count }}</h2>
-          <p class="error" v-if="error">{{ error }}</p>
-        </div>
+        <p class="counter grid-1">{{ count }}</p>
         <div class="img-container grid-2">
           <button @click="increment()" class="img-btn">
             <img src="../assets/img/plus.png" alt="Plus Image" class="img" />
@@ -28,11 +25,8 @@
         </div>
         <div class="input-container grid-5">
           <input v-model="value" type="number" class="input" placeholder="Set value" />
-          <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
-        </div>
-      </div>
-      <div>
-      </div>
+          <button @click="setValue(Number(value))" class="input-btn">Set</button>
+          
     </div>
 
     <!-- TEMPLATE FOR THE COMPOSABLE COMPONENT -->
@@ -49,29 +43,20 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "Counter",
+  computed: {
+    ...mapGetters("counter", ["count"]),
+  },
+  methods: {
+    ...mapActions("counter", ["increment", "decrement", "reset", "setValue"]),
+  },
   data() {
     return {
       value: "",
     };
   },
-  computed: {
-    ...mapGetters(["count", "error"]),
-  },
-  methods: {
-    ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
-    setValueAction() {
-      const value = Number(this.value);
-      if (!isNaN(value) && value >= 0 && value <= 1000) {
-        this.clearError();
-        this.setValue(value);
-        this.value = "";
-      } else {
-        this.setError("Please enter a number between 0 and 1000");
-      }
-    }
-  },
-}
+};
+
+
 //  COMPOSABLE COMPONENT
 // import useCounter from "../composables/useCounter";
 // export default {
@@ -132,15 +117,6 @@ export default {
     border-radius: 10px;
     padding: 15px 0;
 
-    .counter-wrapper {
-      width: 100%;
-      padding: 10px 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
-
     .counter {
       color: $color-grey-light;
       font-size: $font-size-xl;
@@ -150,13 +126,8 @@ export default {
       background-color: $color-white-soft;
       border-radius: 10px;
       width: 80%;
-    }
-
-    .error {
-      color: $color-red;
-      font-size: $font-size-xs;
-      font-family: $font-family-alt;
-      text-align: center;
+      overflow: hidden;
+      padding: 0 5px;
     }
 
     .img-container {

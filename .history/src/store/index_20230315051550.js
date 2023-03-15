@@ -20,8 +20,11 @@ export default createStore({
       value.value = "";
       // CLEAR THE ERROR MESSAGE
       error = document.querySelector(".error");
-      if (error !== null) {
-        error.innerHTML = "";
+      if (
+        error.classList.contains("error") &&
+        error.classList.contains("show")
+      ) {
+        error.classList.remove("show");
       }
     },
     setValue(state, value) {

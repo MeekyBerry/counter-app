@@ -13,19 +13,20 @@ export default createStore({
     decrement(state) {
       state.count--;
     },
-    reset(state, value, error) {
+    reset(state) {
       state.count = 0;
       // ACCESS THE VALUE INPUT BY THE USER AND ALSO SET IT TO ZERO
       value = document.querySelector("input");
       value.value = "";
-      // CLEAR THE ERROR MESSAGE
-      error = document.querySelector(".error");
-      if (error !== null) {
-        error.innerHTML = "";
-      }
     },
     setValue(state, value) {
       state.count = value;
+      if (!isNaN(value) && value >= 0 && value <= 100) {
+        this.clearError();
+        
+     } else {
+       this.setError("Please enter a number between 0 and 100");
+     }
     },
     setError(state, error) {
       state.error = error;

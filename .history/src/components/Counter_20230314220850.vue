@@ -7,10 +7,7 @@
         <!-- <strong>NOTE:</strong> The composable component is commented out in the code below. -->
       </p>
       <div class="img__container__grid">
-        <div class="counter-wrapper grid-1">
-          <h2 class="counter">{{ count }}</h2>
-          <p class="error" v-if="error">{{ error }}</p>
-        </div>
+        <p class="counter grid-1">{{ count }}</p>
         <div class="img-container grid-2">
           <button @click="increment()" class="img-btn">
             <img src="../assets/img/plus.png" alt="Plus Image" class="img" />
@@ -27,11 +24,9 @@
           </button>
         </div>
         <div class="input-container grid-5">
-          <input v-model="value" type="number" class="input" placeholder="Set value" />
-          <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
+          <input v-model="value" type="number" placeholder="Enter a number here" class="input" />
+          <button @click="setValue(Number(value))" class="input-btn">Set Value</button>
         </div>
-      </div>
-      <div>
       </div>
     </div>
 
@@ -49,29 +44,20 @@
 import { mapActions, mapGetters } from "vuex";
 
 export default {
-  name: "Counter",
+  computed: {
+    ...mapGetters(["count"]),
+  },
+  methods: {
+    ...mapActions(["increment", "decrement", "reset", "setValue"]),
+  },
   data() {
     return {
       value: "",
     };
   },
-  computed: {
-    ...mapGetters(["count", "error"]),
-  },
-  methods: {
-    ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
-    setValueAction() {
-      const value = Number(this.value);
-      if (!isNaN(value) && value >= 0 && value <= 1000) {
-        this.clearError();
-        this.setValue(value);
-        this.value = "";
-      } else {
-        this.setError("Please enter a number between 0 and 1000");
-      }
-    }
-  },
 }
+
+
 //  COMPOSABLE COMPONENT
 // import useCounter from "../composables/useCounter";
 // export default {
@@ -124,39 +110,21 @@ export default {
   .img__container__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 70px repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
     gap: 20px 0;
-    align-items: center;
-    justify-items: center;
     background-color: $color-bg;
     border-radius: 10px;
-    padding: 15px 0;
-
-    .counter-wrapper {
-      width: 100%;
-      padding: 10px 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-    }
+    padding: 10px 0;
 
     .counter {
       color: $color-grey-light;
-      font-size: $font-size-xl;
+      font-size: $font-size-xxl;
       font-weight: $font-weight-medium;
       font-family: $font-family-alt;
       text-align: center;
       background-color: $color-white-soft;
       border-radius: 10px;
-      width: 80%;
-    }
-
-    .error {
-      color: $color-red;
-      font-size: $font-size-xs;
-      font-family: $font-family-alt;
-      text-align: center;
+      height: 100px;
     }
 
     .img-container {
@@ -184,11 +152,12 @@ export default {
       gap: 10px;
 
       .input {
-        width: 80%;
-        height: 40px;
+        width: 60%;
+        height: 30px;
         border: none;
         outline: none;
         border-radius: 5px;
+        padding: 5px;
         font-size: $font-size-md;
         font-weight: $font-weight-medium;
         font-family: $font-family-alt-2;
@@ -227,7 +196,7 @@ export default {
         cursor: pointer;
         text-transform: uppercase;
         font-weight: $font-weight-medium;
-        font-size: $font-size-sm;
+        font-size: $font-size-md;
         font-family: $font-family-alt-2;
         transition: all 0.3s ease-in-out;
         border: 1px solid $color-white;
@@ -245,7 +214,7 @@ export default {
     }
 
     .grid-1 {
-      grid-column: 1 / 4;
+      grid-column: 2 / 3;
       grid-row: 1 / 2;
     }
 

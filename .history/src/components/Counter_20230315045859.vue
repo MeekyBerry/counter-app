@@ -30,9 +30,9 @@
           <input v-model="value" type="number" class="input" placeholder="Set value" />
           <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
         </div>
-      </div>
-      <div>
-      </div>
+        </div>
+        <div >
+        </div>
     </div>
 
     <!-- TEMPLATE FOR THE COMPOSABLE COMPONENT -->
@@ -62,12 +62,12 @@ export default {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
     setValueAction() {
       const value = Number(this.value);
-      if (!isNaN(value) && value >= 0 && value <= 1000) {
-        this.clearError();
+      if (!isNaN(value) && value >= 0 && value <= 100 && value != "") {
+         this.clearError();
         this.setValue(value);
         this.value = "";
       } else {
-        this.setError("Please enter a number between 0 and 1000");
+        this.setError("Please enter a number between 0 and 100");
       }
     }
   },
@@ -133,12 +133,8 @@ export default {
     padding: 15px 0;
 
     .counter-wrapper {
-      width: 100%;
-      padding: 10px 5px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
+      width: 80%;
+      padding: 0 5px;
     }
 
     .counter {
@@ -149,14 +145,7 @@ export default {
       text-align: center;
       background-color: $color-white-soft;
       border-radius: 10px;
-      width: 80%;
-    }
-
-    .error {
-      color: $color-red;
-      font-size: $font-size-xs;
-      font-family: $font-family-alt;
-      text-align: center;
+      width: 100%;
     }
 
     .img-container {

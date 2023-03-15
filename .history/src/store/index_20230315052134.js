@@ -4,7 +4,7 @@ import { createStore } from "vuex";
 export default createStore({
   state: {
     count: 0,
-    error: "",
+    error: "Please enter a number between 0 and 1000",
   },
   mutations: {
     increment(state) {
