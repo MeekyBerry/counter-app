@@ -140,7 +140,7 @@ main {
       border-radius: 10px;
       padding: 15px 0;
       width: 100%;
-      max-width: 300px;
+      max-width: 350px;
 
       .grid-1 {
         grid-column: 1 / 4;
@@ -169,6 +169,7 @@ main {
 
       .counter-wrapper {
         width: 100%;
+        padding: 10px 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -181,12 +182,8 @@ main {
           font-family: $font-family-alt;
           text-align: center;
           background-color: $color-white-soft;
-          border-radius: 5px;
-          width: 85%;
-          height: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          border-radius: 10px;
+          width: 80%;
         }
 
         .error {
@@ -205,17 +202,12 @@ main {
         .img-btn {
           background-color: transparent;
           border: none;
-          cursor: pointer;
           outline: none;
-          transition: transform 0.2s;
-
-          &:active {
-            transform: scale(0.9);
-          }
+          cursor: pointer;
 
           .img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
           }
         }
       }
@@ -227,8 +219,8 @@ main {
         gap: 10px;
 
         .input {
-          width: 85%;
-          height: 30px;
+          width: 80%;
+          height: 40px;
           border: none;
           outline: none;
           border-radius: 5px;
@@ -269,18 +261,15 @@ main {
           padding: 5px 10px;
           cursor: pointer;
           text-transform: uppercase;
+          font-weight: $font-weight-medium;
           font-size: $font-size-sm;
           font-family: $font-family-alt-2;
           transition: all 0.3s ease-in-out;
           border: 1px solid $color-white;
 
-          &:hover {
-            background-color: $color-bg;
-            color: $color-white;
-          }
-
+          &:hover,
           &:active {
-            background-color: $color-bg-dark;
+            background-color: $color-bg;
             color: $color-white;
           }
 
@@ -297,7 +286,6 @@ main {
       font-weight: $font-weight-medium;
       font-style: italic;
       color: $color-white-soft;
-      margin-top: 20px;
 
       .attribution-link {
         color: $color-white-soft;

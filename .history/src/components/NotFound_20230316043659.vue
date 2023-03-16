@@ -23,11 +23,11 @@ export default {
       router.push({ name: "Home" });
     },
   },
-  mounted() {
-    setTimeout(() => {
-      router.push({ name: "Home" });
-    }, 10000);
-  },
+  // mounted() {
+  //   setTimeout(() => {
+  //     router.push({ name: "Home" });
+  //   }, 10000);
+  // },
 };
 </script>
 
@@ -46,8 +46,9 @@ export default {
 
   .error-img__container {
     width: 100%;
-    max-width: 300px;
-    height: 100%;
+    max-width: 350px;
+    min-height: 200px;
+    // height: 100%;
     max-height: 300px;
     background-color: $color-white-soft;
     border-radius: 10px;

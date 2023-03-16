@@ -206,11 +206,15 @@ main {
           background-color: transparent;
           border: none;
           cursor: pointer;
-          outline: none;
+          // outline: none;
           transition: transform 0.2s;
 
           &:active {
             transform: scale(0.9);
+          }
+
+          &:focus {
+            outline: none;
           }
 
           .img {

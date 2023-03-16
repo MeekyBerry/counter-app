@@ -205,13 +205,8 @@ main {
         .img-btn {
           background-color: transparent;
           border: none;
-          cursor: pointer;
           outline: none;
-          transition: transform 0.2s;
-
-          &:active {
-            transform: scale(0.9);
-          }
+          cursor: pointer;
 
           .img {
             width: 50px;
@@ -297,7 +292,6 @@ main {
       font-weight: $font-weight-medium;
       font-style: italic;
       color: $color-white-soft;
-      margin-top: 20px;
 
       .attribution-link {
         color: $color-white-soft;

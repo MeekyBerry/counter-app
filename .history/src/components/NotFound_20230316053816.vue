@@ -5,6 +5,10 @@
     </div>
     <p class="error-msg">{{ msg }}</p>
     <button @click="redirect()" class="error-btn">Go to Home</button>
+    <p class="attribution">
+        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span>Meeky</span>
+          &copy;2023</a>
+      </p>
   </div>
 </template>
 
@@ -23,11 +27,11 @@ export default {
       router.push({ name: "Home" });
     },
   },
-  mounted() {
-    setTimeout(() => {
-      router.push({ name: "Home" });
-    }, 10000);
-  },
+  // mounted() {
+  //   setTimeout(() => {
+  //     router.push({ name: "Home" });
+  //   }, 10000);
+  // },
 };
 </script>
 
@@ -46,9 +50,9 @@ export default {
 
   .error-img__container {
     width: 100%;
-    max-width: 300px;
+    max-width: 350px;
     height: 100%;
-    max-height: 300px;
+    max-height: 350px;
     background-color: $color-white-soft;
     border-radius: 10px;
 

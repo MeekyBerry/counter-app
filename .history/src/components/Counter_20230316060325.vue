@@ -206,7 +206,7 @@ main {
           background-color: transparent;
           border: none;
           cursor: pointer;
-          outline: none;
+          // outline: none;
           transition: transform 0.2s;
 
           &:active {

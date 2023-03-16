@@ -33,10 +33,11 @@
           <button @click="setValueAction(Number(value))" class="input-btn">Set</button>
         </div>
       </div>
-      <p class="attribution">
-        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span>Meeky</span>
-          &copy;2023</a>
-      </p>
+      <div class="attribution">
+        <p class="attribution-content">
+          Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link">Meeky &copy;2023</a>
+        </p>
+      </div>
     </div>
 
     <!-- TEMPLATE FOR THE COMPOSABLE COMPONENT -->
@@ -107,25 +108,24 @@ main {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    padding: 10px 0;
 
     .container-title {
-      text-align: center;
-      margin-bottom: 5px;
-      line-height: 1.4;
 
       .title {
         color: $color-white;
-        font-size: $font-size-lg;
+        font-size: $font-size-xl;
         font-weight: $font-weight-medium;
         font-family: $font-family-alt-2;
         text-transform: uppercase;
+        text-align: center;
       }
 
       .subtitle {
         color: $color-white-soft;
         font-size: $font-size-xs;
         font-family: $font-family-alt;
+        margin-bottom: 20px;
+        text-align: center;
       }
     }
 
@@ -139,62 +139,57 @@ main {
       background-color: $color-bg;
       border-radius: 10px;
       padding: 15px 0;
-      width: 100%;
-      max-width: 300px;
 
       .grid-1 {
-        grid-column: 1 / 4;
-        grid-row: 1 / 2;
-      }
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
 
-      .grid-2 {
-        grid-column: 3 / 4;
-        grid-row: 2 / 3;
-      }
+    .grid-2 {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+    }
 
-      .grid-3 {
-        grid-column: 1 / 2;
-        grid-row: 2 / 3;
-      }
+    .grid-3 {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
 
-      .grid-4 {
-        grid-column: 2 / 3;
-        grid-row: 3 / 4;
-      }
+    .grid-4 {
+      grid-column: 2 / 3;
+      grid-row: 3 / 4;
+    }
 
-      .grid-5 {
-        grid-column: 1 / 4;
-        grid-row: 4 / 5;
-      }
+    .grid-5 {
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+    }
 
       .counter-wrapper {
         width: 100%;
+        padding: 10px 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
         gap: 3px;
+      }
 
-        .counter {
-          color: $color-grey-light;
-          font-size: $font-size-xl;
-          font-weight: $font-weight-medium;
-          font-family: $font-family-alt;
-          text-align: center;
-          background-color: $color-white-soft;
-          border-radius: 5px;
-          width: 85%;
-          height: 40px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
+      .counter {
+        color: $color-grey-light;
+        font-size: $font-size-xl;
+        font-weight: $font-weight-medium;
+        font-family: $font-family-alt;
+        text-align: center;
+        background-color: $color-white-soft;
+        border-radius: 10px;
+        width: 80%;
+      }
 
-        .error {
-          color: $color-red;
-          font-size: $font-size-xs;
-          font-family: $font-family-alt;
-          text-align: center;
-        }
+      .error {
+        color: $color-red;
+        font-size: $font-size-xs;
+        font-family: $font-family-alt;
+        text-align: center;
       }
 
       .img-container {
@@ -205,115 +200,79 @@ main {
         .img-btn {
           background-color: transparent;
           border: none;
-          cursor: pointer;
           outline: none;
-          transition: transform 0.2s;
-
-          &:active {
-            transform: scale(0.9);
-          }
+          cursor: pointer;
 
           .img {
-            width: 50px;
-            height: 50px;
-          }
-        }
-      }
-
-      .input-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-
-        .input {
-          width: 85%;
-          height: 30px;
-          border: none;
-          outline: none;
-          border-radius: 5px;
-          font-size: $font-size-md;
-          font-weight: $font-weight-medium;
-          font-family: $font-family-alt-2;
-          color: $color-bg-dark;
-          background-color: $color-white;
-          text-align: center;
-
-          &:focus {
-            border: 1px solid $color-white;
-          }
-
-          &::placeholder {
-            color: $color-grey-light;
-            font-family: $font-family;
-            font-weight: $font-weight-normal;
-            font-size: $font-size-xs;
-          }
-
-          &::-webkit-outer-spin-button,
-          &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-          }
-
-          &[type=number] {
-            -moz-appearance: textfield;
+            width: 60px;
+            height: 60px;
           }
         }
 
-        .input-btn {
-          border: none;
-          border-radius: 5px;
-          background-color: $color-white;
-          color: $color-bg-dark;
-          padding: 5px 10px;
-          cursor: pointer;
-          text-transform: uppercase;
-          font-size: $font-size-sm;
-          font-family: $font-family-alt-2;
-          transition: all 0.3s ease-in-out;
-          border: 1px solid $color-white;
+        .input-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
 
-          &:hover {
-            background-color: $color-bg;
-            color: $color-white;
-          }
-
-          &:active {
-            background-color: $color-bg-dark;
-            color: $color-white;
-          }
-
-          &:focus {
+          .input {
+            width: 80%;
+            height: 40px;
+            border: none;
             outline: none;
+            border-radius: 5px;
+            font-size: $font-size-md;
+            font-weight: $font-weight-medium;
+            font-family: $font-family-alt-2;
+            color: $color-bg-dark;
+            background-color: $color-white;
+            text-align: center;
+
+            &:focus {
+              border: 1px solid $color-white;
+            }
+
+            &::placeholder {
+              color: $color-grey-light;
+              font-family: $font-family;
+              font-weight: $font-weight-normal;
+              font-size: $font-size-xs;
+            }
+
+            &::-webkit-outer-spin-button,
+            &::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+
+            &[type=number] {
+              -moz-appearance: textfield;
+            }
           }
-        }
-      }
-    }
 
-    .attribution {
-      font-size: $font-size-sm;
-      font-family: $font-family-alt;
-      font-weight: $font-weight-medium;
-      font-style: italic;
-      color: $color-white-soft;
-      margin-top: 20px;
+          .input-btn {
+            border: none;
+            border-radius: 5px;
+            background-color: $color-white;
+            color: $color-bg-dark;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: $font-weight-medium;
+            font-size: $font-size-sm;
+            font-family: $font-family-alt-2;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid $color-white;
 
-      .attribution-link {
-        color: $color-white-soft;
-        text-decoration: none;
-        cursor: pointer;
+            &:hover,
+            &:active {
+              background-color: $color-bg;
+              color: $color-white;
+            }
 
-        &:hover {
-          background-color: unset;
-        }
-
-        span {
-          color: $color-red;
-          transition: all 0.3s ease-in-out;
-
-          &:hover {
-            text-decoration: underline;
+            &:focus {
+              outline: none;
+            }
           }
         }
       }

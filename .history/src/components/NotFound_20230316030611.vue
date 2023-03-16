@@ -26,7 +26,7 @@ export default {
   mounted() {
     setTimeout(() => {
       router.push({ name: "Home" });
-    }, 10000);
+    }, 5000);
   },
 };
 </script>
@@ -46,7 +46,7 @@ export default {
 
   .error-img__container {
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     height: 100%;
     max-height: 300px;
     background-color: $color-white-soft;
@@ -62,7 +62,7 @@ export default {
   .error-msg {
     margin-top: 10px;
     font-family: $font-family-alt-2;
-    font-size: $font-size-md;
+    font-size: $font-size-lg;
     font-weight: $font-weight-medium;
     color: $color-white-soft;
     font-style: italic;
