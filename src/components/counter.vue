@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/assets/sass-style/variables.scss";
+@import "../assets/sass-style/variables.scss";
 
 main {
   height: 100vh;

@@ -17,15 +17,12 @@ const router = createRouter({
       component: Counter,
     },
     {
-      path: "/404",
-      name: "page-not-found",
-      component: NotFound,
+      path: "/404", name: "page-not-found", component: NotFound
     },
     {
-      path: "/:catchAll(.*)",
-      redirect: "/404",
+      path: "/:catchAll(.*)", redirect: "/404"
     },
-  ],
+  ]
 });
 
 export default router;
