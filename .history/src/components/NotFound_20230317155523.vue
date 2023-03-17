@@ -4,6 +4,7 @@
       <img src="../assets/img/404-error.png" alt="Error Image" class="error-img" />
     </div>
     <p class="error-msg">{{ msg }}</p>
+    <!-- <button @click="redirect()" class="back">Go to Home</button> -->
     <router-link to="/" tag="button" class="back">Go to Home</router-link>
   </div>
 </template>
@@ -18,6 +19,11 @@ export default {
       msg: "The page you are looking for does not exist!!!",
     };
   },
+  // methods: {
+  //   redirect() {
+  //     router.push({ name: "Counter" });
+  //   },
+  // },
   mounted() {
     setTimeout(() => {
       router.push("/");

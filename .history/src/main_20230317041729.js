@@ -1,15 +1,21 @@
+import { createApp } from "vue";
+import App from "./App.vue";
+// import router from "./router";
 import { createRouter, createWebHistory } from "vue-router";
+import store from "./store";
 import Counter from "@/components/Counter.vue";
 import NotFound from "@/components/NotFound.vue";
+import "./assets/main.css";
+
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: "/",
-      name: "Home",
-      component: Counter,
-    },
+    // {
+    //   path: "/",
+    //   name: "Counter",
+    //   component: Counter,
+    // },
     {
       path: "/counter",
       name: "Counter",
@@ -23,4 +29,4 @@ const router = createRouter({
   ],
 });
 
-export default router;
+createApp(App).use(store).use(router).mount("#app");
