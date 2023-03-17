@@ -5,12 +5,12 @@
     </div>
     <p class="error-msg">{{ msg }}</p>
     <!-- <button @click="redirect()" class="error-btn">Go to Home</button> -->
-    <router-link to="/" class="error-btn">Go to Home</router-link>
+    <routerLink
   </div>
 </template>
 
 <script>
-// import router from '@/router'
+import router from '@/router'
 
 export default {
   name: "NotFound",
@@ -19,11 +19,11 @@ export default {
       msg: "The page you are looking for does not exist!!!",
     };
   },
-  // methods: {
-  //   redirect() {
-  //     router.push({ name: "Home" });
-  //   },
-  // },
+  methods: {
+    redirect() {
+      router.push({ name: "Home" });
+    },
+  },
   mounted() {
     setTimeout(() => {
       router.push({ name: "Home" });

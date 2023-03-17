@@ -2,12 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import Counter from "@/components/Counter.vue";
 import NotFound from "@/components/NotFound.vue";
 
-const router = createRouter({
+export const router = createRouter({
   history: createWebHistory(),
   routes: [
     {
       path: "/",
-      name: "Counter",
+      name: "Home",
       component: Counter,
     },
     {
@@ -22,5 +22,3 @@ const router = createRouter({
     },
   ],
 });
-
-export default router;

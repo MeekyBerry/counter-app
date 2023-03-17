@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Counter from "@/components/Counter.vue";
+import Counter from ".../components/Counter.vue";
 import NotFound from "@/components/NotFound.vue";
 
 const router = createRouter({
@@ -7,11 +7,11 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Counter",
+      name: "Home",
       component: Counter,
     },
     {
-      path: "/counter",
+      path: "/Counter",
       name: "Counter",
       component: Counter,
     },

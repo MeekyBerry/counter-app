@@ -5,11 +5,11 @@ import NotFound from "@/components/NotFound.vue";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: "/",
-      name: "Counter",
-      component: Counter,
-    },
+    // {
+    //   path: "/",
+    //   name: "Home",
+    //   component: Counter,
+    // },
     {
       path: "/counter",
       name: "Counter",
