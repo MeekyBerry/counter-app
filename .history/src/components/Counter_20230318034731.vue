@@ -34,7 +34,7 @@
         </div>
       </div>
       <p class="attribution">
-        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span class="attribution-span">Meeky</span>
+        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span>Meeky</span>
           &copy;2023</a>
       </p>
     </div>
@@ -308,7 +308,7 @@ main {
           background-color: unset;
         }
 
-        .attribution-span {
+        span {
           color: $color-red;
           transition: all 0.3s ease-in-out;
 
