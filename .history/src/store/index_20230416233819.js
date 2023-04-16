@@ -3,24 +3,31 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    count: parseInt(localStorage.getItem("count")) || 0,
+    count: 0,
     error: "",
   },
   mutations: {
     increment(state) {
       state.count++;
+      // add count value to local storage
       localStorage.setItem("count", state.count);
     },
     decrement(state) {
-      if (state.count > 0) {
-        state.count--;
-        localStorage.setItem("count", state.count);
-      }
+      state.count--;
+      // add count value to local storage
+      localStorage.setItem("count", state.count);
     },
+    // add count value to local storage
+    // addToLocalStorage(state) {
+    //   localStorage.setItem("count", state.count);
+    // },
+    // // get count value from local storage
+    // getFromLocalStorage(state) {
+    //   state.count = localStorage.getItem("count");
+    // },
+    // reset count value to zero
     reset(state, value, error) {
       state.count = 0;
-      // delete count from local storage
-      localStorage.removeItem("count");
       // ACCESS THE VALUE INPUT BY THE USER AND ALSO SET IT TO ZERO
       value = document.querySelector("input");
       value.value = "";
@@ -29,10 +36,11 @@ export default createStore({
       if (error !== null) {
         error.innerHTML = "";
       }
+      // CLEAR THE LOCAL STORAGE
+      localStorage.clear();
     },
     setValue(state, value) {
       state.count = value;
-      localStorage.setItem("count", state.count);
     },
     setError(state, error) {
       state.error = error;

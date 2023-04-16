@@ -67,7 +67,7 @@ export default {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
     setValueAction() {
       const value = Number(this.value);
-      if (!isNaN(value) && value > 0) {
+      if (!isNaN(value) && value >= 0) {
         this.clearError();
         if (this.count > 0) {
           this.setValue(value + this.count);

@@ -34,8 +34,7 @@
         </div>
       </div>
       <p class="attribution">
-        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span
-            class="attribution-span">Meeky</span>
+        Coded by <a href="https://github.com/MeekyBerry" target="_blank" class="attribution-link"><span class="attribution-span">Meeky</span>
           &copy;2023</a>
       </p>
     </div>
@@ -67,16 +66,12 @@ export default {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
     setValueAction() {
       const value = Number(this.value);
-      if (!isNaN(value) && value > 0) {
+      if (!isNaN(value) && value >= 0 && value <= 1000) {
         this.clearError();
-        if (this.count > 0) {
-          this.setValue(value + this.count);
-        } else {
-          this.setValue(value);
-        }
+        this.setValue(value);
         this.value = "";
       } else {
-        this.setError("Please enter a number above 0");
+        this.setError("Please enter a number between 0 and 1000");
       }
     }
   },

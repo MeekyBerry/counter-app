@@ -67,7 +67,7 @@ export default {
     ...mapActions(["increment", "decrement", "reset", "setValue", "setError", "clearError"]),
     setValueAction() {
       const value = Number(this.value);
-      if (!isNaN(value) && value > 0) {
+      if (!isNaN(value) && value >= 0 && value <= 1000000) {
         this.clearError();
         if (this.count > 0) {
           this.setValue(value + this.count);
@@ -76,7 +76,7 @@ export default {
         }
         this.value = "";
       } else {
-        this.setError("Please enter a number above 0");
+        this.setError("Please enter a number between 0 and 1000000");
       }
     }
   },
